@@ -36,11 +36,22 @@ conda activate condaenv \
 pip install torch==2.1.0 torchvision==0.16.0 torch-cluster torch-scatter -f https://data.pyg.org/whl/torch-2.1.0+cu121.html \
 pip install -e . \
 conda install -c nvidia cuda-nvcc=12.1.105 -y \
-./install_pointnet.sh \
+./install_pointnet.sh 
 
-### Run installation tests \
+### Run installation tests 
 python tests/test_inference_installation.py 
 ---
+
+
+# Run 
+```
+python scripts/demo_scene_pc.py \
+    --filter_collisions \
+    --sample_data_dir GraspGenModels/sample_data/real_scene_pc \
+    --gripper_config GraspGenModels/checkpoints/graspgen_franka_panda.yml
+```
+
+--------
 
 GraspGen is a modular framework for diffusion-based 6-DOF robotic grasp generation that scales across diverse settings: 1) **embodiments** - with 3 distinct gripper types (industrial pinch gripper, suction) 2) **observability** - robustness to partial vs. complete 3D point clouds and 3) **complexity** - grasping single-object vs. clutter. We also introduce a novel and performant on-generator training recipe for the grasp discriminator, which scores and ranks the generated grasps. GraspGen outperforms prior methods in real and sim (SOTA performance on the FetchBench grasping benchmark, 17% improvement) while being performant (21X less memory) and realtime (20 Hz before TensorRT). We release the data generation, data formats as well as the training and inference infrastructure in this repo.
 
