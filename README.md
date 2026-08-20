@@ -56,6 +56,12 @@ python scripts/demo_scene_pc.py \
  python scripts/demo_scene_pc.py     --filter_collisions     --sample_data_dir GraspGenModels/sample_data/my_custom_data     --gripper_config GraspGenModels/checkpoints/graspgen_franka_panda.yml     --scene 00
 ```
 
+# Run
+
+```
+ python scripts/demo_scene_pc.py     --sample_data_dir /scratch/codepk37/GraspGen/GraspGenModels/sample_data/aygrasp_data     --scene 01     --filter_collisions     --collision_threshold 0.005     --grasp_threshold 0.50     --num_grasps 400     --gripper_config GraspGenModels/checkpoints/graspgen_franka_panda.yml
+```
+
 --------
 
 GraspGen is a modular framework for diffusion-based 6-DOF robotic grasp generation that scales across diverse settings: 1) **embodiments** - with 3 distinct gripper types (industrial pinch gripper, suction) 2) **observability** - robustness to partial vs. complete 3D point clouds and 3) **complexity** - grasping single-object vs. clutter. We also introduce a novel and performant on-generator training recipe for the grasp discriminator, which scores and ranks the generated grasps. GraspGen outperforms prior methods in real and sim (SOTA performance on the FetchBench grasping benchmark, 17% improvement) while being performant (21X less memory) and realtime (20 Hz before TensorRT). We release the data generation, data formats as well as the training and inference infrastructure in this repo.
